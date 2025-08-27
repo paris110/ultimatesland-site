@@ -1,0 +1,86 @@
+Perfeito 🙌 esse é o jeito mais flexível e fácil de entender para o jogador:
+
+1 crédito = R\$ 1
+O jogador escolhe quantos quer e o site já mostra o total a pagar.
+
+Aqui está o modelo atualizado da **loja.html** com cálculo automático:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Loja de Créditos - Seu Jogo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f0f0f0; }
+    .container { background: white; padding: 20px; border-radius: 10px; max-width: 500px; margin: auto; }
+    h1 { text-align: center; }
+    label { display: block; margin-top: 10px; }
+    input, button { width: 100%; padding: 10px; margin-top: 5px; }
+    .pix-box { margin-top: 20px; padding: 15px; border: 2px dashed #666; text-align: center; }
+    .total { font-size: 18px; font-weight: bold; margin-top: 15px; color: green; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Comprar Créditos</h1>
+    <form id="compraForm">
+      <label>Nome completo:</label>
+      <input type="text" name="nome" required>
+
+      <label>Nome do personagem:</label>
+      <input type="text" name="personagem" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Quantidade de créditos:</label>
+      <input type="number" id="creditos" name="creditos" min="1" max="1000" required>
+
+      <div id="valorTotal" class="total">Total: R$ 0,00</div>
+
+      <button type="submit">Finalizar compra</button>
+    </form>
+
+    <div id="pixBox" class="pix-box" style="display:none;">
+      <h3>Pagamento via PIX</h3>
+      <p>Chave PIX: <b>seuemail@dominio.com</b></p>
+      <img src="qrcode_pix.png" alt="QR Code PIX" width="200">
+      <p>Copie a chave ou escaneie o QR Code no seu banco.</p>
+    </div>
+  </div>
+
+  <script>
+    const creditosInput = document.getElementById("creditos");
+    const valorTotal = document.getElementById("valorTotal");
+    const form = document.getElementById("compraForm");
+    const pixBox = document.getElementById("pixBox");
+
+    creditosInput.addEventListener("input", () => {
+      let qtd = parseInt(creditosInput.value) || 0;
+      let total = qtd * 1; // 1 crédito = R$1
+      valorTotal.textContent = "Total: R$ " + total.toFixed(2).replace(".", ",");
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      pixBox.style.display = "block";
+      alert("Pedido registrado! Faça o pagamento via PIX e aguarde a confirmação manual.");
+    });
+  </script>
+</body>
+</html>
+```
+
+---
+
+### 🔹 Como funciona:
+
+* O jogador digita a quantidade de créditos.
+* O site mostra automaticamente o valor total em **reais**.
+* Quando clicar em **Finalizar compra**, aparece sua chave PIX + QR Code.
+* Você depois confere no banco e adiciona os créditos manualmente.
+
+---
+
+👉 Quer que eu já monte também um **index.html** simples (com nome do jogo, história, integrantes e botão/link para essa loja)?
