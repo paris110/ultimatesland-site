@@ -1,0 +1,22 @@
+{
+  "Apps de TV": [
+    {
+      "nome": "TV Online Pro",
+      "descricao": "Assista canais de TV no Android.",
+      "arquivo": "https://drive.google.com/uc?export=download&id=1AbCdEfGhIjK"
+    },
+    {
+      "nome": "Canais HD Player",
+      "descricao": "Player leve para IPTV.",
+      "arquivo": "https://drive.google.com/uc?export=download&id=9XyZtUoPqRst"
+    }
+  ],
+
+  "Jogos": [
+    {
+      "nome": "Corrida Turbo",
+      "descricao": "Jogo de corrida offline.",
+      "arquivo": "https://drive.google.com/uc?export=download&id=7QwErTyUiOpL"
+    }
+  ]
+}
